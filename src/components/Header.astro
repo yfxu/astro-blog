@@ -1,0 +1,37 @@
+---
+import { SITE } from "@consts";
+---
+
+<header>
+  <div class="header-left">
+    <h2 style="margin: 0;">
+      <a href="/">{SITE.TITLE}</a>
+    </h2>
+  </div>
+  <div class="header-right">
+    <nav>
+      <a href="/posts">posts</a> <span class="separator">/</span>
+      <a href="/gallery">gallery</a> <span class="separator">/</span>
+      <a href="/about">about</a>
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+
+    nav a {
+      margin: 0 0.25rem;
+    }
+
+    div.header-left {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+  }
+</style>

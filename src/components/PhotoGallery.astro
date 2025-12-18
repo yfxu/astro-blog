@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+
+const photos = (await getCollection("gallery")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<div class="gallery">
+  {
+    photos.map((photo) => {
+      const ratio = (photo.data.width * 200) / photo.data.height;
+      const padding = (photo.data.width / photo.data.height) * 100;
+      return (
+        <a
+          href={`/${photo.collection}/${photo.id}`}
+          style={`width:${ratio}px; flex-grow:${ratio};`}
+        >
+          <i style={`padding-bottom:${padding}%`} />
+          <img src={photo.data.imageUrl} loading="lazy" />
+        </a>
+      );
+    })
+  }
+</div>
+
+<style lang="scss">
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px;
+
+    &::after {
+      content: "";
+      flex-grow: 999999999;
+    }
+
+    > a {
+      display: block;
+      margin: 2px;
+      position: relative;
+      min-height: 200px;
+      flex-grow: 1;
+      background-color: var(--color-background);
+
+      img {
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 200px;
+        object-fit: cover;
+        vertical-align: bottom;
+      }
+
+      &:hover {
+        img {
+          filter: brightness(160%);
+        }
+      }
+    }
+  }
+</style>

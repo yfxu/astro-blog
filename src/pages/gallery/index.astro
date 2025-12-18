@@ -1,0 +1,18 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import PhotoGallery from "@components/PhotoGallery.astro";
+import { GALLERY_METADATA } from "@consts";
+---
+
+<Layout
+  title={GALLERY_METADATA.TITLE}
+  description={GALLERY_METADATA.DESCRIPTION}
+>
+  <Container>
+    <h1>gallery</h1>
+  </Container>
+  <Container width="md">
+    <PhotoGallery />
+  </Container>
+</Layout>

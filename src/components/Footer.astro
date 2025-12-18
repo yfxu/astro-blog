@@ -1,0 +1,28 @@
+---
+import { SOCIAL_LINKS } from "@consts";
+---
+
+<footer>
+  <div>
+    <p>&copy; 2025 Yifei Xu</p>
+  </div>
+  <div class="links">
+    {
+      SOCIAL_LINKS.map((link, i) => (
+        <>
+          <a href={link.url} target="_blank" rel="noopener noreferrer">{link.name}</a>
+          {i < SOCIAL_LINKS.length - 1 && " / "}
+        </>
+      ))
+    }
+  </div>
+</footer>
+
+<style lang="scss">
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+</style>

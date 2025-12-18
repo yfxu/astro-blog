@@ -1,0 +1,31 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("posts"))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"posts">;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={Astro.props.data.title} description={Astro.props.data.title}>
+  <Container>
+    <article>
+      <h1>{Astro.props.data.title}</h1>
+      <time datetime={Astro.props.data.date.toISOString()}>
+        {Astro.props.data.date.toISOString().split("T")[0]}
+      </time>
+      <Content />
+    </article>
+  </Container>
+</Layout>

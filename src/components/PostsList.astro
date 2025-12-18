@@ -1,0 +1,37 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import PostCard from "@components/PostCard.astro";
+
+const { limit } = Astro.props; // Shows all posts when undefined
+
+const posts = (await getCollection("posts"))
+  .filter((post: CollectionEntry<"posts">) => !post.data.draft)
+  .sort((a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf());
+
+if (limit !== undefined) {
+  posts.splice(limit);
+}
+---
+
+<aside>
+  <hr />
+  {posts.map((post: CollectionEntry<"posts">) => (
+    <PostCard post={post} />
+    <hr />
+  ))}
+</aside>
+
+<style lang="scss">
+  aside {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--color-lines);
+    width: 100%;
+    margin: 0;
+  }
+</style>

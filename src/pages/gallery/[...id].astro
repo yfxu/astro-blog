@@ -1,0 +1,62 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const gallery = (await getCollection("gallery"))
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return gallery.map((photo) => ({
+    params: { id: photo.id },
+    props: photo,
+  }));
+}
+type Props = CollectionEntry<"gallery">;
+
+const photo = Astro.props;
+const { Content } = await render(photo);
+---
+
+<Layout title={Astro.props.data.title} description={Astro.props.data.title}>
+  <Container>
+    <article>
+      <img id="photo" src={photo.data.imageUrl}>
+      <h1 id="photo-title">{Astro.props.data.title}</h1>
+      <div id="photo-info">
+        {photo.data.location && <span id="photo-location">{photo.data.location}</span>}
+        {photo.data.date && <span id="photo-date">{photo.data.date}</span>}
+        <span id="photo-tags">{photo.data.tags?.map((tag) => <a href="">#{tag}</a>)}</span>
+      </div>
+      <Content />
+    </article>
+  </Container>
+</Layout>
+
+<style lang="scss">
+  img#photo {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  div#photo-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    span#photo-location {
+      color: var(--color-text-secondary);
+    }
+
+    span#photo-date {
+      color: var(--color-text);
+      font-size: 0.75rem;
+      font-family: var(--font-display);
+    }
+
+    span#photo-tags {
+      display: inline-flex;
+      flex-direction: row;
+      gap: 0.5em;
+    }
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import PostsList from "@components/PostsList.astro";
+import Container from "@components/Container.astro";
+import { POSTS_METADATA } from "@consts";
+
+const posts = (await getCollection("posts"))
+  .filter((post: CollectionEntry<"posts">) => !post.data.draft)
+  .sort((a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title={POSTS_METADATA.TITLE} description={POSTS_METADATA.DESCRIPTION}>
+  <Container>
+    <h1>posts</h1>
+    <PostsList />
+  </Container>
+</Layout>
+
+<style lang="scss">
+  aside {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--color-lines);
+    width: 100%;
+    margin: 0;
+  }
+</style>

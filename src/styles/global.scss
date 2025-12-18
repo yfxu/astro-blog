@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  // Colors
+  --color-bg: #18181a;
+  --color-bg-secondary: #0d0d0f;
+  --color-text: #dad7cb;
+  --color-text-secondary: #a8a29e;
+  --color-lines: #3f3f46;
+  --color-accent: #5a5ae7;
+
+  // Fonts
+  --font-body: 'Funnel Sans', sans-serif;
+  --font-display: 'IBM Plex Mono', monospace;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Funnel Sans', sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: dotted underline;
+  // text-decoration-color: var(--color-accent);
+
+  &:hover {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+  }
+}
+
+blockquote {
+  border-left: 4px solid var(--color-accent);
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1rem;
+  color: var(--color-text-secondary);
+}
+
+article {
+  a[href^="http"]::after {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.25em;
+    
+    background-color: currentColor;
+    mask-image: url("/public/arrow-up-right-from-square-solid-full.svg");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}

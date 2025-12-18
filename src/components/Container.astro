@@ -1,0 +1,39 @@
+---
+interface Props {
+  accent?: boolean;
+  width?: "sm" | "md" | "lg";
+}
+
+const { accent = false, width = "sm" } = Astro.props;
+---
+
+<div class="outer-container">
+  <div class="container">
+    <slot />
+  </div>
+</div>
+
+<style
+  lang="scss"
+  define:vars={{
+    backgroundColor: accent ? "var(--color-bg-secondary)" : "var(--color-bg)",
+    maxWidth:
+      width === "sm"
+        ? "720px"
+        : width === "md"
+        ? "1440px"
+        : width === "lg"
+        ? "100vw"
+        : "720px",
+  }}
+>
+  .outer-container {
+    width: 100%;
+    background-color: var(--backgroundColor);
+  }
+
+  .container {
+    max-width: var(--maxWidth);
+    margin: 0 auto;
+  }
+</style>

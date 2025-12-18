@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"posts">;
+};
+
+const { post } = Astro.props as { post: CollectionEntry<"posts"> };
+---
+
+<a class="post-container" href={`/${post.collection}/${post.id}`}>
+  <time datetime={post.data.date.toISOString()} class="no-underline">
+    {post.data.date.toISOString().split("T")[0]}
+  </time>
+  <span> / </span>
+  <span>{post.data.title}</span>
+</a>
+
+<style lang="scss">
+  a.post-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: unset;
+    color: unset;
+    padding: 1rem 0;
+
+    &:hover {
+      background-color: var(--color-lines);
+    }
+  }
+
+  time {
+    color: var(--color-text-secondary);
+    font-family: var(--font-display);
+    // background-color: var(--color-lines);
+    // border-radius: 2px;
+    // padding: 0 0.25rem;
+    font-size: 0.875rem;
+    height: fit-content;
+  }
+</style>
