@@ -1,9 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 
-const photos = (await getCollection("gallery")).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+const { ids } = Astro.props;
+const photos = (await getCollection("gallery"))
+  .filter((photo: CollectionEntry<"gallery">) => ids === undefined || ids.includes(photo.id))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <div class="gallery">
@@ -28,7 +29,6 @@ const photos = (await getCollection("gallery")).sort(
   .gallery {
     display: flex;
     flex-wrap: wrap;
-    margin: 2px;
 
     &::after {
       content: "";

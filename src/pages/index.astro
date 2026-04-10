@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import PostsList from "@components/PostsList.astro";
 import Container from "@components/Container.astro";
+import PhotoGallery from "@components/PhotoGallery.astro";
 ---
 
 <Layout>
@@ -12,5 +13,9 @@ import Container from "@components/Container.astro";
     <h2>recent posts</h2>
     <PostsList limit={5} />
     <a href="/posts">See all posts →</a>
+
+    <h2>Favourite Photos</h2>
+    <PhotoGallery ids={["dreamweaver", "akihabara-overblown", "naka-meguro-overblown", "listless-dream"]} />
+    <a href="/gallery">See all photos →</a>
   </Container>
 </Layout>

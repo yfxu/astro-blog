@@ -13,6 +13,17 @@
   --font-body: 'Funnel Sans', sans-serif;
   --font-display: 'IBM Plex Mono', monospace;
 }
+@media(prefers-color-scheme: light) {
+    :root {
+    // Colors
+    --color-bg: #e9e9ff;
+    --color-bg-secondary: #d9d9f3;
+    --color-text: #2b2a28;
+    --color-text-secondary: #585552;
+    --color-lines: #d2d2e9;
+    --color-accent: #5a5ae7;
+  }
+}
 
 body {
   margin: 0;

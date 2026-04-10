@@ -4,7 +4,7 @@ date: 2025-12-02
 draft: false
 ---
 
-As much of a joke as the term "brainrot" is, I do find that it's a real problem that's corrosive to my mental well-being. If I choose to immerse myself into a digital medium, I find myself surrounded by ragebait, upsetting headlines, misinformation,  
+In an effort to limit how much brain
 
 ## General
 
@@ -23,6 +23,7 @@ I would like to de-Google my digital life as much as I can. Still figuring out a
 The current setup is Nova Prime launcher with a self-made KLWP background on my Samsung Galaxy S25.
 
 The custom homescreen gives me access to a few essential apps I use most frequently:
+
 - Clock
 - Calendar
 - Weather

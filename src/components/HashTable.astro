@@ -1,0 +1,46 @@
+---
+interface Props {
+  digests: number[]  // 32 bytes (0-255 each)
+}
+
+const { digests } = Astro.props
+---
+
+<table>
+  {Array.from({ length: 8 }).map((_, row) => {
+    // Row 0 = most significant bit (bit 7), row 7 = least significant bit (bit 0)
+    const bitPosition = 7 - row  // This makes row 0 = bit 7, row 7 = bit 0
+    return (
+      <tr>
+        {Array.from({length: 32}).map((_, cell) => {
+          const bit = (digests[0] >> 8 * cell + row) & 1
+          
+          return (
+            <td>
+              <div style={`opacity: ${bit}`} />
+            </td>
+          )
+        })}
+      </tr>
+    )
+  })}
+</table>
+
+<style lang="scss">
+  table {
+    border-collapse: collapse;
+  }
+  
+  td {
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+    
+    
+    div {
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-accent);
+    }
+  }
+</style>
