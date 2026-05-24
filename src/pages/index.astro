@@ -8,14 +8,27 @@ import PhotoGallery from "@components/PhotoGallery.astro";
 <Layout>
   <Container>
     <h1>aloha!</h1>
-    <p>Hi, I'm Yifei (逸飞), and this is my personal website. I post notes about technology, life, and whatever else I feel like writing about. I also post some of my photography over on the <a href="/gallery">gallery</a> page, some of which are also supplemented with additional writing. These days, I'm running a Fujifilm X100 with a black mist 1/4 filter.</p>
-  
+    <p>
+      Hi, I'm Yifei (逸飞), and this is my personal website. I post notes about
+      technology, life, and whatever else I feel like writing about. I also post
+      some of my photography over on the <a href="/gallery">gallery</a> page, some
+      of which are also supplemented with additional writing. These days, I'm running
+      a Fujifilm X100 with a black mist 1/4 filter.
+    </p>
+
     <h2>recent posts</h2>
     <PostsList limit={5} />
     <a href="/posts">See all posts →</a>
 
     <h2>Favourite Photos</h2>
-    <PhotoGallery ids={["dreamweaver", "akihabara-overblown", "naka-meguro-overblown", "listless-dream"]} />
+    <PhotoGallery
+      ids={[
+        "dreamweaver",
+        "akihabara-overblown",
+        "naka-meguro-overblown",
+        "listless-dream",
+      ]}
+    />
     <a href="/gallery">See all photos →</a>
   </Container>
 </Layout>

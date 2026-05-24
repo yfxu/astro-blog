@@ -4,8 +4,6 @@ date: 2025-12-02
 draft: false
 ---
 
-In an effort to limit how much brain
-
 ## General
 
 ### Passwords
@@ -51,4 +49,4 @@ At the end of the day, I prefer to shutdown my PC instead of putting it to sleep
 
 ### Desktop
 
-I have "Show desktop icons" disabled. The leading philosophy here is that I don't want my computer to suggest to me what to do, and the empty desktop also feels clean and lightweight.
+I have "Show desktop icons" disabled. The leading philosophy here is that my computer should not be suggesting to me what to do. I'd like to be more intentional and use my computer only when I actually need it.

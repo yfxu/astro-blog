@@ -21,10 +21,10 @@ const { accent = false, width = "sm" } = Astro.props;
       width === "sm"
         ? "720px"
         : width === "md"
-        ? "1440px"
-        : width === "lg"
-        ? "100vw"
-        : "720px",
+          ? "1440px"
+          : width === "lg"
+            ? "100vw"
+            : "720px",
   }}
 >
   .outer-container {
@@ -35,5 +35,6 @@ const { accent = false, width = "sm" } = Astro.props;
   .container {
     max-width: var(--maxWidth);
     margin: 0 auto;
+    padding-bottom: 1rem;
   }
 </style>
