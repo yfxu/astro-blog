@@ -53,6 +53,23 @@ blockquote {
 }
 
 article {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  figure {
+    margin: 1.5rem 0;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    text-align: center;
+    color: var(--color-text-secondary);
+  }
+
   a[href^="http"]::after {
     content: "";
     display: inline-block;
