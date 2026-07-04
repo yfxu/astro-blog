@@ -10,7 +10,9 @@ import { SOCIAL_LINKS } from "@consts";
     {
       SOCIAL_LINKS.map((link, i) => (
         <>
-          <a href={link.url} target="_blank" rel="noopener noreferrer">{link.name}</a>
+          <a href={link.url} target="_blank" rel="noopener noreferrer">
+            {link.name}
+          </a>
           {i < SOCIAL_LINKS.length - 1 && " / "}
         </>
       ))

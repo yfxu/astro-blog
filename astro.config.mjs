@@ -6,6 +6,7 @@ import rehypeFigure from "./src/plugins/rehype-figure.mjs";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://yfxu.net",
   integrations: [mdx()],
   markdown: {
     rehypePlugins: [rehypeFigure],
