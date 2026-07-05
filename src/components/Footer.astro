@@ -10,10 +10,10 @@ import { SOCIAL_LINKS } from "@consts";
     {
       SOCIAL_LINKS.map((link, i) => (
         <>
-          <a href={link.url} target="_blank" rel="noopener noreferrer">
-            {link.name}
-          </a>
-          {i < SOCIAL_LINKS.length - 1 && " / "}
+          <a href={link.url} target="_blank" rel="noopener noreferrer">{link.name}</a>
+          <span class="divider">
+            {i < SOCIAL_LINKS.length - 1 && " / "}
+          </span>
         </>
       ))
     }
@@ -26,5 +26,9 @@ import { SOCIAL_LINKS } from "@consts";
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
+  }
+
+  span.divider {
+    text-decoration: none;
   }
 </style>
