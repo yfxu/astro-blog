@@ -1,9 +1,0 @@
----
-title: ""
-date: 2026-07-05T00:00:00+08:00
-tags: ["china", "hunan"]
-location: "China"
-imageUrl: "https://cdn.yfxu.net/daa7bdba1581fceff0048edad43e0227/original.jpg"
-width: 4310
-height: 2870
----
