@@ -3,28 +3,31 @@ import type { Metadata, Site } from "@types";
 export const SITE: Site = {
   TITLE: "yfxu.net",
   ALT_TITLE: "徐逸飞",
-  DESCRIPTION: "Yifei's blog",
+  DESCRIPTION: "Yifei's blog for writing and photography",
   EMAIL: "yifei@yfxu.net",
+  AUTHOR: "Yifei Xu",
+  OG_IMAGE: "/og-default.png",
+  TWITTER_HANDLE: "@yi_feiri",
 }
 
 export const HOME_METADATA: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "home page",
+  DESCRIPTION: "Yifei's blog for writing and photography",
 }
 
 export const POSTS_METADATA: Metadata = {
   TITLE: "Posts",
-  DESCRIPTION: "blog posts",
+  DESCRIPTION: "Writing on tech, design, and life.",
 }
 
 export const ABOUT_METADATA: Metadata = {
   TITLE: "About",
-  DESCRIPTION: "about the author",
+  DESCRIPTION: "More stuff about me",
 }
 
 export const GALLERY_METADATA: Metadata = {
   TITLE: "Gallery",
-  DESCRIPTION: "photography gallery",
+  DESCRIPTION: "Yifei's photography board",
 }
 
 export const SOCIAL_LINKS = [

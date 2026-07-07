@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import { type CollectionEntry, getCollection, render } from "astro:content";
+import { SITE } from "@consts";
 
 export async function getStaticPaths() {
   const gallery = (await getCollection("gallery"))
@@ -15,17 +16,59 @@ type Props = CollectionEntry<"gallery">;
 
 const photo = Astro.props;
 const { Content } = await render(photo);
+
+const description =
+  photo.data.caption ??
+  (photo.data.location
+    ? `${photo.data.title} — a photograph taken at ${photo.data.location} by ${SITE.AUTHOR}.`
+    : `${photo.data.title} — a photograph by ${SITE.AUTHOR}.`);
+
+const canonical = new URL(`/gallery/${photo.id}/`, Astro.site).toString();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  name: photo.data.title,
+  description,
+  contentUrl: photo.data.imageUrl,
+  url: canonical,
+  width: photo.data.width,
+  height: photo.data.height,
+  datePublished: photo.data.date.toISOString(),
+  creator: { "@type": "Person", name: SITE.AUTHOR },
+  ...(photo.data.caption ? { caption: photo.data.caption } : {}),
+  ...(photo.data.location
+    ? { contentLocation: { "@type": "Place", name: photo.data.location } }
+    : {}),
+  ...(photo.data.tags?.length ? { keywords: photo.data.tags.join(", ") } : {}),
+};
 ---
 
-<Layout title={Astro.props.data.title} description={Astro.props.data.title}>
+<Layout
+  title={photo.data.title}
+  description={description}
+  image={photo.data.imageUrl}
+  type="article"
+  article={{ publishedTime: photo.data.date.toISOString(), author: SITE.AUTHOR, tags: photo.data.tags }}
+  schema={schema}
+>
   <Container>
     <article>
-      <img id="photo" src={photo.data.imageUrl}>
+      <img
+        id="photo"
+        src={photo.data.imageUrl}
+        alt={description}
+        width={photo.data.width}
+        height={photo.data.height}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
       <h1 id="photo-title">{Astro.props.data.title}</h1>
       <div id="photo-info">
         {photo.data.location && <span id="photo-location">{photo.data.location}</span>}
         {photo.data.date && <span id="photo-date">{photo.data.date}</span>}
-        <span id="photo-tags">{photo.data.tags?.map((tag) => <a href="">#{tag}</a>)}</span>
+        <span id="photo-tags">{photo.data.tags?.map((tag) => <span>#{tag}</span>)}</span>
       </div>
       <Content />
     </article>
@@ -35,6 +78,7 @@ const { Content } = await render(photo);
 <style lang="scss">
   img#photo {
     width: 100%;
+    height: auto;
     margin-top: 1rem;
   }
   

@@ -3,9 +3,31 @@ import Layout from "@layouts/Layout.astro";
 import PostsList from "@components/PostsList.astro";
 import Container from "@components/Container.astro";
 import PhotoGallery from "@components/PhotoGallery.astro";
+import { HOME_METADATA, SITE, SOCIAL_LINKS } from "@consts";
+
+const siteUrl = Astro.site?.toString();
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.TITLE,
+    url: siteUrl,
+    description: SITE.DESCRIPTION,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: SITE.AUTHOR,
+    alternateName: SITE.ALT_TITLE,
+    url: siteUrl,
+    email: SITE.EMAIL,
+    sameAs: SOCIAL_LINKS.filter((l) => l.name !== "email").map((l) => l.url),
+  },
+];
 ---
 
-<Layout>
+<Layout description={HOME_METADATA.DESCRIPTION} schema={schema}>
   <Container>
     <h1>aloha!</h1>
     <p>

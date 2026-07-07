@@ -1,9 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
+import { ABOUT_METADATA } from "@consts";
 ---
 
-<Layout title="About" description="About page">
+<Layout title={ABOUT_METADATA.TITLE} description={ABOUT_METADATA.DESCRIPTION}>
   <Container>
     <h1>about</h1>
     <article>

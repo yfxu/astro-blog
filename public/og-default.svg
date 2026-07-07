@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#18181a"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#5a5ae7"/>
+  <g font-family="'IBM Plex Mono', monospace">
+    <text x="80" y="300" fill="#dad7cb" font-size="96" font-weight="700">yfxu.net</text>
+    <text x="80" y="372" fill="#a8a29e" font-size="40" font-weight="400">Yifei's blog for writing and photography</text>
+    <text x="80" y="560" fill="#5a5ae7" font-size="32" font-weight="500">徐逸飞 · Yifei Xu</text>
+  </g>
+</svg>

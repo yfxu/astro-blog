@@ -1,18 +1,95 @@
 ---
+import { SITE } from "@consts";
+
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
+  article?: {
+    publishedTime?: string;
+    modifiedTime?: string;
+    author?: string;
+    tags?: string[];
+  };
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description } = Astro.props;
+const {
+  title,
+  description = SITE.DESCRIPTION,
+  image,
+  type = "website",
+  article,
+  schema,
+} = Astro.props;
+
+// Full <title>: brand the page, keep the home page clean.
+const pageTitle = title
+  ? `${title} — ${SITE.TITLE}`
+  : `${SITE.TITLE} — ${SITE.DESCRIPTION}`;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Resolve social image to an absolute URL, falling back to the site-wide default
+// (gallery imageUrls are already absolute; new URL leaves them untouched).
+const socialImage = new URL(image ?? SITE.OG_IMAGE, Astro.site).toString();
+
+// Serialize JSON-LD, escaping "<" so it can't break out of the <script> tag.
+const jsonLd = schema
+  ? JSON.stringify(schema).replace(/</g, "\\u003c")
+  : undefined;
 ---
+
 <!-- Main Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="title" content={title} />
+<meta name="title" content={pageTitle} />
 <meta name="description" content={description} />
-<title>{ title }</title>
+<title>{pageTitle}</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
 <!-- Canonical URL -->
-<!-- <link rel="canonical" href={canonicalURL} /> -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content={SITE.TITLE} />
+<meta property="og:locale" content="en" />
+<meta property="og:image" content={socialImage} />
+
+<!-- Open Graph: article -->
+{type === "article" && article?.publishedTime && (
+  <meta property="article:published_time" content={article.publishedTime} />
+)}
+{type === "article" && article?.modifiedTime && (
+  <meta property="article:modified_time" content={article.modifiedTime} />
+)}
+{type === "article" && article?.author && (
+  <meta property="article:author" content={article.author} />
+)}
+{type === "article" &&
+  article?.tags?.map((tag) => <meta property="article:tag" content={tag} />)}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImage} />
+{SITE.TWITTER_HANDLE && <meta name="twitter:site" content={SITE.TWITTER_HANDLE} />}
+{SITE.TWITTER_HANDLE && <meta name="twitter:creator" content={SITE.TWITTER_HANDLE} />}
+
+<!-- RSS -->
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE.TITLE}
+  href={new URL("rss.xml", Astro.site)}
+/>
+
+<!-- Structured data -->
+{jsonLd && <script type="application/ld+json" is:inline set:html={jsonLd} />}
