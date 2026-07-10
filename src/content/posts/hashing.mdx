@@ -6,6 +6,7 @@ scripts: ["hash.js"]
 stylesheets: ["hash"]
 ---
 import HashTable from "../../components/HashTable.astro"
+import Figure from "../../components/Figure.astro"
 
 *The data visualizations in this post may be more legible on a light colour-scheme.*
 
@@ -22,7 +23,9 @@ One of the craziest things to me is that this algorithm is supposed to be able t
 'c' -> 0x63 -> 01100011
 ```
 
-<HashTable digests={[83814198383102558219731078260892729932246618004265700685467928187377105751529,456]} />
+<Figure caption="An interactive bit-heatmap comparing the SHA-256 hashes of 'a' and 'c'. View it on the site for the full visualization.">
+  <HashTable digests={[83814198383102558219731078260892729932246618004265700685467928187377105751529,456]} />
+</Figure>
 
 Below, I've displayed two heatmaps for the SHA-256 hashes of both 'a' and 'c'. Each column of the heatmap corresponds to one byte of the 32 byte long hash, and each cell corresponds to one of the eight bits in that byte. The left-most column displays the most significant byte, and the top of each column represents the most significant bit. 
 

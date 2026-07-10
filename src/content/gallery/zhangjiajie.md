@@ -1,9 +1,9 @@
 ---
-title: "Zhangjiajie"
+title: Zhangjiajie
 date: 2026-06-10T17:24:23+08:00
-tags: ["china", "hunan", "zhanjiajie", "natural_scenery"]
-location: "湖南省，张家界 (Zhangjiajie, Hunan Province, China)"
-imageUrl: "https://cdn.yfxu.net/fe9f547f4c14ff786f262cda55e4cb57/original.jpg"
+tags: [china, hunan, zhangjiajie, natural_scenery, mountains]
+location: 湖南省，张家界森林公园 (Zhangjiajie National Forest Park, Hunan Province, China)
+imageUrl: https://cdn.yfxu.net/fe9f547f4c14ff786f262cda55e4cb57/original.jpg
 width: 4310
 height: 2870
 ---

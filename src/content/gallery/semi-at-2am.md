@@ -1,9 +1,9 @@
 ---
-title: "Semi Truck at 2:45 AM"
+title: Semi Truck at 2:45 AM
 date: 2023-11-27T02:45:27-08:00
-tags: ["canada", "vancouver", "british_columbia", "urban_scenery", "lights", "vehicles"]
-location: "Vancouver, BC"
-imageUrl: "https://files.yfxu.net/DSCF0405_0b74887a5e18593e9f21c245c6afbf88.jpg"
+tags: [canada, vancouver, british_columbia, lights, vehicles]
+location: Vancouver, BC
+imageUrl: https://files.yfxu.net/DSCF0405_0b74887a5e18593e9f21c245c6afbf88.jpg
 width: 4310
 height: 2870
 ---
