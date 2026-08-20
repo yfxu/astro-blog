@@ -1,9 +1,9 @@
 ---
-title: "Ruby"
+title: Ruby
 date: 2023-07-30T13:46:37-07:00
-tags: ["long_exposure", "lights", "abstract", "usa", "washington", "seattle"]
-location: "Chihuly Garden and Glass, Seattle"
-imageUrl: "https://files.yfxu.net/DSCF9290_efbc7d159170e054e7270cda313e7bd9.jpg"
+tags: [long_exposure, lights, abstract, usa, washington, seattle, red]
+location: Chihuly Garden and Glass, Seattle
+imageUrl: https://files.yfxu.net/DSCF9290_efbc7d159170e054e7270cda313e7bd9.jpg
 width: 4310
 height: 2870
 ---

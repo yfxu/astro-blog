@@ -1,9 +1,9 @@
 ---
-title: "Iris"
+title: Iris
 date: 2026-06-11T23:20:11+08:00
-tags: ["china", "hunan", "phoenix_ancient_city"]
-location: "湖南省，凤凰古城（Phoenix Ancient City, Hunan Province, China）"
-imageUrl: "https://cdn.yfxu.net/b7a6090c9bccc820b8c541a263fdef58/original.jpg"
+tags: [china, hunan, phoenix_ancient_city, lights, blue, long_exposure]
+location: 湖南省，凤凰古城（Phoenix Ancient City, Hunan Province, China）
+imageUrl: https://cdn.yfxu.net/b7a6090c9bccc820b8c541a263fdef58/original.jpg
 width: 4310
 height: 2870
 ---

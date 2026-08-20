@@ -68,7 +68,7 @@ const schema = {
       <div id="photo-info">
         {photo.data.location && <span id="photo-location">{photo.data.location}</span>}
         {photo.data.date && <span id="photo-date">{photo.data.date}</span>}
-        <span id="photo-tags">{photo.data.tags?.map((tag) => <span>#{tag}</span>)}</span>
+        <span id="photo-tags">{photo.data.tags?.map((tag) => <a href={`/gallery/tags/${tag}`}>#{tag}</a>)}</span>
       </div>
       <Content />
     </article>

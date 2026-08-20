@@ -1,9 +1,9 @@
 ---
-title: "Solar Eclipse"
+title: Solar Eclipse
 date: 2024-04-08T14:12:40-04:00
-tags: ["skies", "solar_eclipse", "canada", "ontario"]
-location: "Port Dover, ON"
-imageUrl: "https://live.staticflickr.com/65535/53713238000_8303ccae7a_o.jpg"
+tags: [skies, solar_eclipse, canada, ontario, blue]
+location: Port Dover, ON
+imageUrl: https://live.staticflickr.com/65535/53713238000_8303ccae7a_o.jpg
 width: 4310
 height: 2870
 ---

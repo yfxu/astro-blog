@@ -1,9 +1,9 @@
 ---
-title: ""
+title: Yogurt Shop
 date: 2026-06-13T22:52:37+08:00
-tags: ["china", "hunan", "changsha"]
-location: "湖南省，长沙市 (Changsha, Hunan, China)"
-imageUrl: "https://cdn.yfxu.net/24573ab4086048706451b305d3b7fbc3/original.jpg"
+tags: [china, hunan, changsha, blue]
+location: 湖南省，长沙市 (Changsha, Hunan, China)
+imageUrl: https://cdn.yfxu.net/24573ab4086048706451b305d3b7fbc3/original.jpg
 width: 4310
 height: 2870
 ---

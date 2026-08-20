@@ -1,0 +1,48 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import { getGalleryTags } from "@utils/tags";
+import { GALLERY_METADATA } from "@consts";
+
+const tags = await getGalleryTags();
+---
+
+<Layout title="Gallery tags" description={GALLERY_METADATA.DESCRIPTION}>
+  <Container>
+    <h1>tags</h1>
+    <ul class="tags">
+      {
+        tags.map(({ tag, count }) => (
+          <li>
+            <a href={`/gallery/tags/${tag}`}>
+              #{tag} <span class="count">{count}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</Layout>
+
+<style lang="scss">
+  ul.tags {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    a {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.35em;
+      text-decoration: none;
+
+      .count {
+        color: var(--color-text-secondary);
+        font-size: 0.75rem;
+        font-family: var(--font-display);
+      }
+    }
+  }
+</style>

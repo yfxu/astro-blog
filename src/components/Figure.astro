@@ -1,0 +1,27 @@
+---
+/**
+ * Wraps interactive components or images that can't render in an RSS reader.
+ *
+ * On the website it renders its children as-is (the live widget/image). In the
+ * RSS feed, `src/utils/feed.ts` finds the `data-rss-caption` marker and replaces
+ * the whole subtree with the caption, so subscribers get a readable placeholder
+ * instead of broken/empty markup.
+ */
+interface Props {
+  /** Text shown in the feed in place of the wrapped content. */
+  caption: string;
+}
+
+const { caption } = Astro.props;
+---
+
+<div data-rss-caption={caption}>
+  <slot />
+</div>
+
+<style>
+  /* Wrapper must not affect on-site layout; it only carries the RSS marker. */
+  [data-rss-caption] {
+    display: contents;
+  }
+</style>
